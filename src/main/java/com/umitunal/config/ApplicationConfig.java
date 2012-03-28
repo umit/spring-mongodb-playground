@@ -33,9 +33,4 @@ public class ApplicationConfig {
         return new ProductService();
     }
 
-    public @Bean MongoDataService mongoDataService() {
-        return new MongoDataService();
-    }
-
-
 }
