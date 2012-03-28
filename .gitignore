@@ -3,9 +3,8 @@
 *.iws
 .idea/
 
+# Java #
 *.class
 
 # Package Files #
 *.jar
-*.war
-*.ear
