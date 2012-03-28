@@ -36,7 +36,7 @@ import static org.junit.Assert.assertSame;
                      }
 )
 @ActiveProfiles("test")
-public class ProductServiceTest {
+public class ProductServiceIntegrationTest {
 
     public static final int PRODUCT_LIST_SIZE = 10;
 
