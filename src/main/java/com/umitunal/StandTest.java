@@ -17,14 +17,5 @@ public class StandTest {
         context.register(ApplicationConfig.class);
         context.getEnvironment().setActiveProfiles("prod");
         context.refresh();
-
-
-        MongoDataService mongoDataService = context.getBean(MongoDataService.class);
-
-        mongoDataService.initDataService();
-        //ProductService productService = context.getBean(ProductService.class);
-
-
-
     }
 }
