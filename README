@@ -1,3 +1,7 @@
-This file was created by IntelliJ IDEA 11.0.2 for binding GitHub repository
-This file was modified by IntelliJ IDEA 11.0.2 for binding GitHub repository
-This file was modified by IntelliJ IDEA 11.0.2 for binding GitHub repository
+Spring Framework ile MongoDB kullanımı için örnek proje.
+
+
+Spring Framework    :3.1.1.RELEASE
+Spring Data MongoDB :1.0.1.RELEASE
+Junit               :4.8.2
+Mockito             :1.9.0
