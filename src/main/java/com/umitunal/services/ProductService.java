@@ -1,23 +1,16 @@
 package com.umitunal.services;
 
 
-import com.mongodb.Mongo;
-import com.umitunal.domain.Product;
-import com.umitunal.domain.ProductComment;
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
-import java.util.List;
+import com.umitunal.domain.Product;
 
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/27/12
- * Time: 2:34 PM
- */
 public class ProductService {
 
     @Autowired

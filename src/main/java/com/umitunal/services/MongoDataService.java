@@ -41,7 +41,7 @@ public class MongoDataService {
     private Product prepareProduct() {
         Product product = new Product();
         product.setCreatedAt(new Date());
-        product.setTitle("Title " + UUID.randomUUID().toString());
+        product.setTitle("Title");
         product.setDescription("Product Description" + UUID.randomUUID().toString());
         product.setPrice(10.0);
         product.setKeywordList(this.getKeywordList());

@@ -1,25 +1,27 @@
 package com.umitunal.services;
 
-import com.umitunal.config.ApplicationConfig;
-import com.umitunal.config.MongoConfiguration;
-import com.umitunal.config.TestMongoConfiguration;
-import com.umitunal.domain.Product;
-import com.umitunal.util.MongoDBTestHelper;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+import java.util.UUID;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.mapreduce.MapReduceResults;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import java.util.List;
-import java.util.UUID;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import com.umitunal.config.ApplicationConfig;
+import com.umitunal.config.MongoConfiguration;
+import com.umitunal.config.TestMongoConfiguration;
+import com.umitunal.domain.Product;
+import com.umitunal.util.MongoDBTestHelper;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,13 +40,15 @@ import static org.junit.Assert.assertSame;
 @ActiveProfiles("test")
 public class ProductServiceIntegrationTest {
 
-    public static final int PRODUCT_LIST_SIZE = 10;
+    public static final int PRODUCT_LIST_SIZE = 100;
 
     private @Autowired ProductService productService;
 
     private @Autowired MongoDBTestHelper mongoDBTestHelper;
 
     private @Autowired MongoDataService mongoDataService;
+    
+    private @Autowired MongoOperations mongoOperations;
 
     @Before
     public void init() {
@@ -86,6 +90,11 @@ public class ProductServiceIntegrationTest {
         assertEquals(productTitle,actualProduct.getTitle());
 
     }
-
+    
+    @Test
+    public void mapReduceTest(){
+    	MapReduceResults<Product> mapReduceResults = mongoOperations.mapReduce("products", "classpath:map.js", "classpath:reduce.js", Product.class);
+    	System.out.println(mapReduceResults.getRawResults().get("results"));
+    }
 
 }

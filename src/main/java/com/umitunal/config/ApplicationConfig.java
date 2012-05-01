@@ -1,8 +1,5 @@
 package com.umitunal.config;
 
-import com.mongodb.WriteConcern;
-import com.umitunal.services.MongoDataService;
-import com.umitunal.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,12 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/27/12
- * Time: 2:53 PM
- */
+import com.mongodb.WriteConcern;
+import com.umitunal.services.ProductService;
+
+
 @Configuration
 @ComponentScan(basePackages = "com.umitunal")
 public class ApplicationConfig {

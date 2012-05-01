@@ -10,13 +10,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
-
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/28/12
- * Time: 10:25 AM
- */
 @Component
 public class MongoDBTestHelper {
 

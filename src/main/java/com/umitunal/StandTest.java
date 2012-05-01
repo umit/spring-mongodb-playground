@@ -1,16 +1,9 @@
 package com.umitunal;
 
-import com.umitunal.config.ApplicationConfig;
-import com.umitunal.services.MongoDataService;
-import com.umitunal.services.ProductService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/27/12
- * Time: 3:30 PM
- */
+import com.umitunal.config.ApplicationConfig;
+
 public class StandTest {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
