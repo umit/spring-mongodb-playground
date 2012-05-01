@@ -8,3 +8,15 @@
 
 # Package Files #
 *.jar
+
+.DS_Store
+I
+target/*
+
+.settings/org.eclipse.jdt.core.prefs
+
+.project
+
+.settings/org.eclipse.m2e.core.prefs
+
+.classpath
