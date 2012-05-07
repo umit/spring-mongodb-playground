@@ -22,6 +22,7 @@ import com.umitunal.config.MongoConfiguration;
 import com.umitunal.config.TestMongoConfiguration;
 import com.umitunal.domain.Product;
 import com.umitunal.util.MongoDBTestHelper;
+import com.umitunal.util.TitleAndPrice;
 
 /**
  * Created by IntelliJ IDEA.
@@ -52,10 +53,11 @@ public class ProductServiceIntegrationTest {
 
     @Before
     public void init() {
-       mongoDBTestHelper.drop(Product.class);
+       //mongoDBTestHelper.drop(Product.class);
        List<Product> products =  mongoDataService.prepareProductList(PRODUCT_LIST_SIZE);
        mongoDBTestHelper.init(products, Product.class);
     }
+    
     @Test
     public void getAllProduct() {
        assertEquals(PRODUCT_LIST_SIZE, mongoDBTestHelper.getAll(Product.class).size());
@@ -92,8 +94,8 @@ public class ProductServiceIntegrationTest {
     }
     
     @Test
-    public void mapReduceTest(){
-    	MapReduceResults<Product> mapReduceResults = mongoOperations.mapReduce("products", "classpath:map.js", "classpath:reduce.js", Product.class);
+    public void mapReduceTest() {
+    	MapReduceResults<TitleAndPrice> mapReduceResults = mongoOperations.mapReduce("products", "classpath:map.js", "classpath:reduce.js", TitleAndPrice.class);
     	System.out.println(mapReduceResults.getRawResults().get("results"));
     }
 

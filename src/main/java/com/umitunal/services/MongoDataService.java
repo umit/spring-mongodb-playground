@@ -11,12 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/27/12
- * Time: 4:21 PM
- */
+
 @Component
 public class MongoDataService {
 
@@ -41,7 +36,7 @@ public class MongoDataService {
     private Product prepareProduct() {
         Product product = new Product();
         product.setCreatedAt(new Date());
-        product.setTitle("Title");
+        product.setTitle("Title2");
         product.setDescription("Product Description" + UUID.randomUUID().toString());
         product.setPrice(10.0);
         product.setKeywordList(this.getKeywordList());
@@ -59,7 +54,7 @@ public class MongoDataService {
 
             productComments.add(productComment);
         }
-        return productComments;  //To change body of created methods use File | Settings | File Templates.
+        return productComments;
     }
 
 

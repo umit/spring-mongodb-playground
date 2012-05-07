@@ -1,3 +1,3 @@
 function map(){
-    emit(this.id,{price:this.price}); 
-}
+    emit(this.title,{price:this.price}); 
+} 

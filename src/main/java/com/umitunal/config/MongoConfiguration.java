@@ -6,12 +6,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
-/**
- * Created by IntelliJ IDEA.
- * User: uunal
- * Date: 3/27/12
- * Time: 2:57 PM
- */
+
 @Configuration
 @Profile("prod")
 @ImportResource("classpath:properties-config.xml")
