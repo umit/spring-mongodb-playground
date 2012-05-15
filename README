@@ -1,7 +1,10 @@
-Spring Framework ile MongoDB kullanimi i�in �rnek proje.
+Spring Framework ile MongoDB kullanimi i�in �rnek proje.
 
 
 Spring Framework    :3.1.1.RELEASE
 Spring Data MongoDB :1.0.1.RELEASE
 Junit               :4.8.2
 Mockito             :1.9.0
+
+Ümit ÜNAL
+Yazılım Mühendisi.
