@@ -40,13 +40,13 @@ public class MongoDataService {
         product.setDescription("Product Description" + UUID.randomUUID().toString());
         product.setPrice(10.0);
         product.setKeywordList(this.getKeywordList());
-        product.setProductCommentList(this.getProductCommentList());
+        product.setProductCommentList(this.getProductCommentList(3));
         return product;
     }
 
-    private List<ProductComment> getProductCommentList() {
+    public List<ProductComment> getProductCommentList(int size) {
         List<ProductComment> productComments = new ArrayList<ProductComment>();
-        for (int i= 0; i<=3; i++){
+        for (int i= 1; i<=size; i++){
             ProductComment productComment = new ProductComment();
             productComment.setPostedAt(new Date());
             productComment.setAuthor("Author : " + UUID.randomUUID().toString());

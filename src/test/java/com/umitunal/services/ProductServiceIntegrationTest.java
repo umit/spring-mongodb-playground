@@ -21,6 +21,7 @@ import com.umitunal.config.ApplicationConfig;
 import com.umitunal.config.MongoConfiguration;
 import com.umitunal.config.TestMongoConfiguration;
 import com.umitunal.domain.Product;
+import com.umitunal.domain.ProductComment;
 import com.umitunal.util.MongoDBTestHelper;
 import com.umitunal.util.TitleAndPrice;
 
@@ -53,7 +54,7 @@ public class ProductServiceIntegrationTest {
 
     @Before
     public void init() {
-       //mongoDBTestHelper.drop(Product.class);
+       mongoDBTestHelper.drop(Product.class);
        List<Product> products =  mongoDataService.prepareProductList(PRODUCT_LIST_SIZE);
        mongoDBTestHelper.init(products, Product.class);
     }
@@ -72,7 +73,30 @@ public class ProductServiceIntegrationTest {
 
         Product actualProduct = mongoDBTestHelper.findOneById(product.getId(), Product.class);
         assertEquals(product.getId(),actualProduct.getId());
+       
     }
+    
+    @Test
+    public void insertProductComment() {
+        Product product = mongoDataService.prepareProductList(1).get(0);
+        assertNotNull(product);
+
+        productService.insert(product);
+        
+        Product actualProduct = mongoDBTestHelper.findOneById(product.getId(), Product.class);
+        assertEquals(product.getId(),actualProduct.getId());
+        assertEquals(actualProduct.getProductCommentList().size(), 3);
+        
+        //100 new productComments
+        List<ProductComment> productComments = mongoDataService.getProductCommentList(100);
+        actualProduct.getProductCommentList().addAll(productComments);
+        productService.saveOrUpdate(actualProduct);
+        
+        
+        Product product2 = mongoDBTestHelper.findOneById(product.getId(), Product.class);
+        assertEquals(product2.getProductCommentList().size(), 103);
+        
+    } 
 
     @Test
     public void updateProductTitle() {
